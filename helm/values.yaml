@@ -1,0 +1,33 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: "1.27-alpine"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi
+
+probes:
+  liveness:
+    path: /
+    initialDelaySeconds: 5
+    periodSeconds: 10
+  readiness:
+    path: /
+    initialDelaySeconds: 2
+    periodSeconds: 5
+
+# Static page served by the sample app, mounted via ConfigMap.
+html:
+  title: test-urukube-app
+  message: Hello from test-urukube-app, deployed by the ArgoCD ApplicationSet golden path.
