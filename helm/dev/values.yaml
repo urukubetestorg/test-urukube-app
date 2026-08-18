@@ -29,5 +29,5 @@ probes:
 
 # Static page served by the sample app, mounted via ConfigMap.
 html:
-  title: test-urukube-app
-  message: Hello from test-urukube-app, deployed by the ArgoCD ApplicationSet golden path.
+  title: test-urukube-app-dev
+  message: Hello from test-urukube-app-dev, deployed by the ArgoCD ApplicationSet golden path.
